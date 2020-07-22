@@ -1,0 +1,856 @@
+//important
+
+var CMDo = 'NseT';
+var today = new Date();
+var date = ((today.getFullYear()+'/')+(today.getMonth()+1)+'/')+today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = (date+' ')+time;
+
+timedLoop(0, function() {
+  readRecords("ST", {}, function(records) {
+    for (var i =0; i < records.length; i++) {
+      setText("text_area2", records[i].stat);
+      setText("text_input3", getText("text_area2"));
+      setText("label11", "Current Status: " + getText("text_area2"));
+    }
+  });
+
+});
+
+
+onEvent("gbtn", "click", function() {
+  prompt("taking you to the gallery- please wait...");
+  open("https://studio.code.org/projects/applab/nyw_tfQV0nExGzfWyV8GVjqPHy4WrXQbATZ7yBwsW74");
+});
+
+
+timedLoop(0, function() {
+  var today = new Date();
+  var date = ((today.getFullYear()+'/')+(today.getMonth()+1)+'/')+today.getDate();
+  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  var dateTime = (date+' ')+time;
+  setText("label7", "It is: " + dateTime);
+});
+
+onEvent("button1", "click", function( ) {
+  if (getText("text_input1") == "") {
+    console.log("you cannot type nothing");
+  } else {
+    var name = getText("text_input2");
+    readRecords("ch", {}, function(records) {
+      for (var i =0; i < records.length; i++) {
+        var today = new Date();
+        var date = ((today.getFullYear()+'/')+(today.getMonth()+1)+'/')+today.getDate();
+        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        var dateTime = (date+' ')+time;
+        updateRecord("ch", {id:1, ch:((records[i]).ch + ("\n" + ((dateTime + (" [: " + name)) + (" :] " + getText("text_input1")))))}, function(record, success) {
+          createRecord("ChatLogs", {USER:getUserId(), time:dateTime, Cuser:name, Text:getText("text_input1")}, function(record) {
+            setText("text_input1", "");
+          });
+
+        });
+
+
+      }
+    });
+    readRecords("c", {}, function(records) {
+      for (var i =0; i < records.length; i++) {
+        updateRecord("c", {id:1, c:((records[i]).c + 1)}, function(record, success) {
+
+        });
+      }
+    });
+  }
+});
+
+onEvent("button5", "click", function( ) {
+  var name = getText("text_input2");
+
+
+
+
+
+        if (name === 'SERVER') {
+            updateRecord("ch", {id:1, ch:("{UPDATE} [: " + name + " :]" + " restarted the chatpage." + "\n2020/4/27 22:28:16 {ADMIN} [: dizzywig2000 :] Read the Terms that show up when you enter the app" +"\n2020/4/29 22:19:24 [: dizzywig2000 :] You can now post your own suggestion by saying /suggest" + "\n ***IMPORTANT*** = If you see this then please follow the terms you have agreed to, I am willing to ban anyone who violates those terms." + "\n*VERSION* = 2.9- added 'Get User Id'.")}, function(record, success) {
+
+  });
+  updateRecord("c", {id:1, c:0}, function(record, success) {
+
+  });
+  setProperty("button5", "hidden", true);
+  setTimeout(function() {
+    setProperty("button5", "hidden", false);
+  }, 6000);
+          }
+
+  updateRecord("c", {id:1, c:0}, function(record, success) {
+
+  });
+  setProperty("button5", "hidden", true);
+  setTimeout(function() {
+    setProperty("button5", "hidden", false);
+  }, 6000);
+        });
+
+        onEvent("button5", "click", function( ) {
+  var name = getText("text_input2");
+
+
+
+  if (name != 'SERVER') {
+
+
+            updateRecord("ch", {id:1, ch:("{ADMIN} [: " + name + " :]" + " restarted the chatpage." + "\n2020/4/27 22:28:16 {ADMIN} [: dizzywig2000 :] Read the Terms that show up when you enter the app" +"\n2020/4/29 22:19:24 [: dizzywig2000 :] You can now post your own suggestion by saying /suggest" + "\n ***IMPORTANT*** = If you see this then please follow the terms you have agreed to, I am willing to ban anyone who violates those terms." + "\n*VERSION* = 2.9- added 'Get User Id'.")}, function(record, success) {
+
+  });
+  updateRecord("c", {id:1, c:0}, function(record, success) {
+
+  });
+  setProperty("button5", "hidden", true);
+  setTimeout(function() {
+    setProperty("button5", "hidden", false);
+  }, 6000);
+
+
+  updateRecord("c", {id:1, c:0}, function(record, success) {
+
+  });
+  setProperty("button5", "hidden", true);
+  setTimeout(function() {
+    setProperty("button5", "hidden", false);
+  }, 6000);
+  }
+        });
+
+
+
+
+
+
+
+
+
+        onEvent("button8", "click", function(Event) {
+          setScreen("screen5");
+        });
+        onEvent("button9", "click", function(Event) {
+          setScreen("screen3");
+        });  
+
+
+
+
+
+          onEvent("button1", "click", function() {
+            if (getText("text_input1") === '/Cadmin') {
+              if (getUserId() === 'OBiEunQAKySuCZXI4r+VKxH89pU') {
+                setScreen("screen10");
+              }
+            }
+          });
+
+          onEvent("adminn", "click", function() {
+            updateRecord("admin", {id:1, adm:getText("ADMINN")}, function(record, success) {
+              updateRecord("Achange", {id:1, NAME:getText("ADMINN")}, function(record, success) {
+
+              });
+
+
+            });
+
+          });
+
+
+
+
+
+  onEvent("button17", "click", function() {
+    setText("ADMINN", '');
+    setScreen("screen3");
+  });
+
+
+
+
+timedLoop(0.1, function() {
+  readRecords("admin", {}, function(records) {
+    for (var i =0; i < records.length; i++) {
+      setText("admin", records[i].adm);
+    }
+  });
+
+})
+
+
+
+
+
+
+
+
+onEvent("button1", "click", function() {
+  if (getText("text_input1") === '/Ban') {
+    readRecords("admin", {}, function(records) {
+      for (var i =0; i < records.length; i++) {
+        if (getUserId() === records[i].adm) {
+          setScreen("screen11");
+        } else {
+          if (getUserId() === 'OBiEunQAKySuCZXI4r+VKxH89pU') {
+            setScreen("screen11");
+          }
+        }
+      }
+    });
+
+  }
+});
+
+
+
+onEvent("ban", "click", function() {
+  if (getText("BNI") != '' && getText("BRI") != '') {
+    createRecord("BanR", {NAME:getText("BNI"), REASON:getText("BRI")}, function(record) {
+      setText("BN", getText("BNI"));
+      setText("label23", 'You may now click "CANCEL".');
+    });
+
+  }
+});
+
+
+onEvent("BB", "click", function() {
+  setScreen("screen3");
+  setText("label23", '');
+  setText("BNI", '');
+  setText("BRI", '');
+});
+
+
+
+
+
+//functions
+
+
+
+
+
+
+
+
+
+
+
+//variables
+
+
+
+setScreen("screen8");
+readRecords("Terms", {}, function(records) {
+  for (var i =0; i < records.length; i++) {
+    var terms = records[i].text;
+    timedLoop(0, function() {
+      setText("text_area4", terms);
+    });
+  }
+});
+
+
+
+
+
+onEvent("button14", "click", function() {
+
+
+    setScreen("screen1");
+
+
+});
+
+
+
+
+
+onEvent("button1", "click", function() {
+  if (getText("text_input1") === "/suggest") {
+    setScreen("screen7");
+  }
+
+  });
+
+  onEvent("button4893", "click", function() {
+
+      if (getText("text_area3") != '') {
+        createRecord("Suggestions", {User:getUserId(), ChatTag:getText("text_input2"), suggestion:getText("text_area3")}, function(record) {
+          setScreen("screen3");
+          setText("text_area3", '');
+        });
+
+      } else {
+        if (getText("text_area3") === '') {
+          setText("text_area3", "(erease this text) - You can't leave this empty!");
+        }
+      }
+
+  });
+
+
+onEvent("button12", "click", function() {
+  setScreen("screen3");
+  setText("text_area3", '');
+});  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//start
+
+setProperty("button5", "hidden", true);
+
+
+    if (getUserId() === 'OBiEunQAKySuCZXI4r+VKxH89pU') {
+      setProperty("button5", "hidden", false);
+    }
+
+
+
+
+readRecords("admin", {}, function(records) {
+  for (var i =0; i < records.length; i++) {
+    if (records[i].adm === getUserId()) {
+      setProperty("button5", "hidden", false);
+    }
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+//username
+
+onEvent("button6", "click", function(Event) {
+  setScreen("screen2");
+});
+
+
+
+onEvent("button4", "click", function(Event) {
+  setScreen("screen2");
+});
+
+
+onEvent("button2", "click", function(Event) {
+ if (getText("text_input2").includes('Minecraft')) {
+   if (getUserId() === 'qWtkMZIB8r8X0w0tBy54PQf05fk') {
+     setScreen("screen3");
+     setText("text_input2", 'Minecraft');
+   } else {
+     if (getUserId() != 'qWtkMZIB8r8X0w0tBy54PQf05fk') {
+      setTimeout(function() {
+        setText("text_input2", 'YOU ARE NOT MINECRAFT');
+        setScreen("screen2");
+      }, 100);
+
+     }
+   }
+ } 
+
+ if (getText("text_input2").includes('dizzywig2000')) {
+   if (getUserId() == 'OBiEunQAKySuCZXI4r+VKxH89pU') {
+     setText("text_input2", 'dizzywig2000');
+     setScreen("screen3");
+
+   } else {
+     if (getUserId() != 'OBiEunQAKySuCZXI4r+VKxH89pU') {
+       setText("text_input2", "you are not the owner");
+       setTimeout(function() {
+        setScreen("screen2"); 
+       }, 100);
+     }
+   }
+
+ } else {
+
+   if (getText("text_input2").includes('SERVER')) {
+   if (getUserId() == 'OBiEunQAKySuCZXI4r+VKxH89pU') {
+     setText("text_input2", 'SERVER');
+     setScreen("screen3");
+   } else {
+     if (getUserId() != 'OBiEunQAKySuCZXI4r+VKxH89pU') {
+       setText("text_input2", "you are not the server");
+       setTimeout(function() {
+        setScreen("screen2"); 
+       }, 100);
+     }
+   }
+ } else {
+   if (getText("text_input2".includes('**Cat Mode**'))) {
+     setText("text_input2", 'Please enter cat mode');
+     setTimeout(function() {
+       setScreen("screen2");
+     }, 100);
+
+   } else {
+
+     if (getText("text_input2") != '**Cat Mode**') {
+       CM = 0;
+        if (getText("text_input2") != '') {
+     setScreen("screen3");
+   } else {
+     if (getText("text_input2") == '') {
+       setText("text_input2", "Guest");
+       setScreen("screen3");
+     }
+   }
+     }
+
+ }
+
+
+   if (getText("text_input2") != '') {
+     setScreen("screen3");
+   } else {
+     if (getText("text_input2") == '') {
+       setText("text_input2", "Guest");
+       setScreen("screen3");
+     }
+   }
+ }
+
+}});
+
+//chat
+
+onEvent("button2", "click", function( ) {
+  setScreen("screen3");
+  if (getText("text_input1") == "") {
+    console.log("you cannot type nothing");
+  } else {
+    onEvent("button4", "click", function( ) {
+      var name = getText("text_input2");
+      readRecords("ch", {}, function(records) {
+        for (var i =0; i < records.length; i++) {
+          updateRecord("ch", {id:1, ch:((records[i]).ch + ("\n" + (name + (": " + getText("text_input6")))))}, function(record, success) {
+            setText("text_input1", "");
+          });
+        }
+      });
+    });
+  }
+});
+timedLoop(0, function() {
+  readRecords("ch", {}, function(records) {
+    for (var i =0; i < records.length; i++) {
+      setText("text_area1", (records[i]).ch);
+    }
+  });
+});
+
+
+setProperty("image1", "hidden", true);
+
+
+
+
+timedLoop(1, function() {
+  if (CM == 1) {
+    setProperty("image1", "hidden", false);
+  } else {
+    if (CM == 0) {
+      setProperty("image1", "hidden", true);
+    }
+  }
+});
+
+
+
+
+
+
+
+
+if (getUserId() === 'OBiEunQAKySuCZXI4r+VKxH89pU') {
+  setProperty("button10", "hidden", false);
+} else {
+  if (getUserId() != 'OBiEunQAKySuCZXI4r+VKxH89pU') {
+    setProperty("button10", "hidden", true);
+  }
+}
+
+
+
+
+
+
+ readRecords("Terms", {}, function(records) {
+  for (var i =0; i < records.length; i++) {
+    var terms = records[i].text;
+    timedLoop(0, function() {
+      setText("text_area5", terms);
+    });
+  }
+});
+
+
+
+
+
+
+onEvent("button16", "click", function() {
+  setScreen("screen3");
+});
+
+onEvent("button15", "click", function() {
+  setScreen("screen9");
+
+});
+
+
+
+
+
+
+
+onEvent("button10", "click", function(Event) {
+  setScreen("screen6");
+});
+onEvent("button11", "click", function(Event) {
+  updateRecord("ST", {id:1, stat: getText("text_input4")}, function(record, success) {
+    setText("text_area2", getText("text_input4"));
+    setText("text_input3", getText("text_input4"));
+    setText("text_input4", '');
+  });
+
+});
+
+
+
+
+timedLoop(0.1, function() {
+  setText("text_input3", getText("text_area2"));
+});
+
+onEvent("button13", "click", function(Event) {
+  setScreen("screen5");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//_
+
+
+
+
+var CM = 0;
+
+
+
+
+
+
+
+
+
+
+
+//New
+
+onEvent("button7", "click", function(Event) {
+  setText("text_input2", '**Cat Mode**');
+  setScreen("screen3");
+  CM = 1;
+  setProperty("image1", "hidden", false);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+//user id
+
+onEvent("button1", "click", function() {
+  if (getText("text_input1") === 'getUserId();') {
+    prompt("Your User Id is: " + getUserId());
+
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+//ADMIN
+
+onEvent("button1", "click", function() {
+  readRecords("admin", {}, function(records) {
+    for (var i =0; i < records.length; i++) {
+      if (getText("text_input1") === '/Acp') {
+        if (getUserId() === records[i].adm) {
+          setScreen("screen12");
+          setText("Aname", getText("text_input2"));
+        } else {
+          if (getUserId() === 'OBiEunQAKySuCZXI4r+VKxH89pU') {
+            setScreen("screen12");
+            setText("Aname", getText("text_input2"));
+          }
+        }
+      }
+    }
+  });
+
+});
+
+
+
+  timedLoop(0, function() {
+  readRecords("cmds", {}, function(records) {
+  for (var i =0; i < records.length; i++) {
+   var CMDS = records[i].cmd
+    timedLoop(0, function() {
+      setText("text_area6", CMDS);
+       CMDo = CMDS;
+    });
+
+  }
+});
+});
+
+
+
+
+onEvent("button3", "click", function() {
+  if (getText("text_input5") === '/Ban') {
+    setText("text_input5", 'Opening...');
+    setTimeout(function() {
+      setScreen("screen11");
+      setText("text_input5", '');
+    }, 1100);
+
+  } else {
+    if (getText("text_input5") === '/Acp') {
+      playSound("sound://category_alerts/retro_game_alert_2.mp3");
+      setText("text_input5", "Command Error");
+      setTimeout(function() {
+        setText("text_input5", '');
+      }, 1100);
+
+
+    }
+  }
+});
+
+
+
+onEvent("button3", "click", function() {
+  if (getText("text_input5") === '/Achat') {
+    setText("text_input5", 'Opening...');
+
+
+
+    setTimeout(function() {
+      setScreen("screen13");
+      setText("text_input5", '');
+    }, 1100);
+     var name = getText("text_input2");
+     readRecords("ach", {}, function(records) {
+    for (var i =0; i < records.length; i++) {
+      updateRecord("ach", {id:1, ach:records[i].ach + "\n" + dateTime + "( - " + name + " - )- " + "Has joined Admin Chat"}, function(record, success) {
+
+      });
+
+  }
+});
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+//Achat
+
+
+);
+onEvent("button18", "click", function() {
+  readRecords("ach", {}, function(records) {
+    for (var i =0; i < records.length; i++) {
+      if (getText("text_input6") != '/Clear') {
+        var name = getText("text_input2");
+        updateRecord("ach", {id:1, ach:records[i].ach + "\n" + dateTime + "[: " + name + " :] - " + getText("text_input6")}, function(record, success) {
+        setText("text_input6", '');
+      });
+      } else {
+        if (getText("text_input6") === '/Clear') {
+          var name = getText("text_input2");
+          updateRecord("ach", {id:1, ach:"[: " + name + " :] - " + "Reset the chat" + "\n" + "Welcome to Admin Chat! do '/Clear' to clear the chat and click on back to go to normal chat"}, function(record, success) {
+            setText("text_input6", '');
+          });
+
+        } 
+
+      }
+
+    }
+  });
+
+
+});
+
+
+
+
+
+
+
+
+timedLoop(0, function() {
+  readRecords("ach", {}, function(records) {
+    for (var i =0; i < records.length; i++) {
+      setText("text_area7", records[i].ach);
+    }
+  });
+
+});
+
+
+
+
+
+
+
+
+
+onEvent("button19", "click", function() {
+  setScreen("screen3");
+  setText("text_input6", '');
+  var name = getText("text_input2");
+  readRecords("ach", {}, function(records) {
+    for (var i =0; i < records.length; i++) {
+      updateRecord("ach", {id:1, ach:records[i].ach + "\n" + dateTime + "( - " + name + " - )- " + "Has left Admin Chat"}, function(record, success) {
+
+      });
+
+    }
+  });
+
+
+});
+
+
+
+
+
+onEvent("AppFAdmin", "click", function() {
+  prompt("Taking you to Admin Apply Form.... Please wait..");
+  open("https://forms.gle/sEx4Bb7krNPZ6QA2A");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+onEvent("image2", "click", function() {
+  setScreen("screen14");
+});
+
+onEvent("image3", "click", function() {
+  setScreen("screen1");
+});
+
+
+onEvent("web", "click", function() {
+  prompt("Taking you (" + getUserId() + ") to website");
+  open("https://codeprojects.org/v4I2D6J70eDof6zThHZZPLzZY9bA5wHVGVpJyM9zbOw/");
+});
+
+
+
+
+
+
+
+
+
+
+onEvent("button14", "click", function() {
+
+  prompt("Hello, " + getUserId() + " , We want you to know that \"Chat App CHAPTER 2\" is finally finished and you can access it in the start page by clicking \"CHAPTER 2\"! *DEV NOTE- Chapter 2 is currently un BETA mode*");
+
+
+});
+
+onEvent("C2", "click", function() {
+  open("https://studio.code.org/projects/applab/9KIPbzr-NxlokX9XfmV0s5TA_x7ZM_NMSmP71T2BUI0");
+});
+
+onEvent("Chapter2btn", "click", function() {
+  open("https://studio.code.org/projects/applab/9KIPbzr-NxlokX9XfmV0s5TA_x7ZM_NMSmP71T2BUI0");
+});
+
+onEvent("C2b", "click", function() {
+  open("https://studio.code.org/projects/applab/9KIPbzr-NxlokX9XfmV0s5TA_x7ZM_NMSmP71T2BUI0");
+});
+
+
